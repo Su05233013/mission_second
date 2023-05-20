@@ -1,0 +1,179 @@
+@import "fontfamily.scss";
+@import "reset.scss";
+
+
+// ===============================================
+// 變數
+// ===============================================
+
+$--color-white: #fff;
+$--color-black: #000;
+$--fs-normal: 16px;
+
+
+
+// ===============================================
+// 共用
+// ===============================================
+
+body {
+    background-color: $--color-black;
+    color: $--color-white;
+}
+
+a {
+    color: $--color-white;
+}
+
+
+.h6 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.container {
+    max-width: 1296px;
+    margin: auto;
+}
+
+.slogan {
+    font-size: 120px;
+    line-height: 120%;
+    font-weight: 900;
+}
+
+.btn {
+    border: 1px solid $--color-white;
+    border-radius: 16px;
+    padding: 20px 40px;
+    background-color: transparent;
+    color: $--color-white;
+}
+
+@media (max-width:575px) {
+
+    .container {
+        max-width: 100%;
+        margin: 0 12px;
+    }
+
+    .slogan {
+        max-width: 252px;
+        font-size: 48px;
+    }
+}
+
+
+// ===============================================
+// 樣式
+// ===============================================
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid $--color-white;
+    
+    ul {
+        display: flex;
+
+        li {
+            &:not(&:last-child) {
+                margin-right: 20px;
+            }
+        }
+    }
+
+    .ham-menu {
+        display: none;
+        margin-right: 11px;
+        font-size: 18px;
+    }
+}
+
+.banner {
+    margin-top: 40px;
+
+    button {
+        margin-top: 60px;
+    }
+
+    .grass {
+        margin-top: 100px;
+        text-align: right;
+        height: 100%;
+        overflow: hidden;
+
+        img {
+            display: inline-block;
+            margin-right: -4px;
+            transform: translateY(182px);
+            animation-name: grass;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        .grass_img1 {
+            animation-delay: 0.4s;
+        }
+
+        .grass_img2 {
+            animation-delay: 0.2s;
+        }
+
+        .grass_img3 {
+            animation-delay: 0s;
+        }
+    }
+}
+
+@keyframes grass {
+    0% {transform: translateY(182px);}
+    30% {transform: translateY(0);}
+    55% {transform: translateY(0);}
+    80% {transform: translateY(-182px);}
+    100% {transform: translateY(-182px);}
+}
+
+
+// ===============================================
+// 手機板
+// ===============================================
+
+@media (max-width:575px) {
+
+    header {
+        padding: 28px 0;
+
+        img {
+            max-width: 113px;
+        }
+
+        ul {
+            display: none;
+        }
+
+        .ham-menu {
+            display: block;
+        }
+    }
+
+    .banner {
+        button {
+            margin-top: 40px;
+        }
+
+        .grass {
+            max-width: 100%;
+            margin-top: 180px;
+
+            img {
+                animation: none;
+                transform: translateY(0);
+                width: calc(100% / 3);
+            }
+        }
+    }
+}
